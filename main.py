@@ -2,9 +2,10 @@ from telegram.ext import Application, CommandHandler, MessageHandler, filters
 from commands import start_cmd, bot_dev, api_dev, images_src, http_status
 from handlers import handle_msg
 from errors import error_handler
-from config import TOKEN
+import os
 
 if __name__ == '__main__':
+    TOKEN = os.environ.get('TOKEN')
     print('Starting bot...')
     app = Application.builder().token(TOKEN).build()
 
